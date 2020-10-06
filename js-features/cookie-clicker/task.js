@@ -1,22 +1,26 @@
-const value = document.getElementById("clicker__counter");
-const pic = document.getElementById("cookie");
-let variable = true;
-let speedClicks = [];
+"use strict";
 
-pic.onclick = function() {
-    value.textContent++;
-    speedClicks.push(+new Date());
-    if (speedClicks.length > 2) {
-        speedClicks.shift();
-    }
-    speedClicks.length === 1 ? document.getElementById('clicker__speed').textContent = '-' : document.getElementById('clicker__speed').textContent = (1 / ((speedClicks[1] - speedClicks[0]) / 1000)).toFixed(2);
-    
+const clicksNumber = document.getElementById("clicker__counter");
+const img = document.getElementById("cookie");
+const speedClicks = document.getElementById("clicker__speed");
+let speedsBasket = [];
+let variable = true;
+
+function clicksAndChanges () {
+    clicksNumber.textContent++;
     if(variable) {
-        pic.width = 300;
+        img.width = 250;
         variable = false;
     }
     else {
-        pic.width = 200;
+        img.width = 200;
         variable = true;
     }
+    speedsBasket.push(+new Date());
+    if (speedsBasket.length > 2) {
+        speedsBasket.shift();
+    }
+    speedsBasket.length === 1 ? speedClicks.textContent = '-' : speedClicks.textContent = (1 / ((speedsBasket[1] - speedsBasket[0]) / 1000)).toFixed(2);
 };
+
+img.onclick = clicksAndChanges;
