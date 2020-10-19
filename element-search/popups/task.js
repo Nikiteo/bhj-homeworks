@@ -19,4 +19,3 @@ document.getElementById('modal_main').classList.add('modal_active');
 document.querySelector('a.btn_success').onclick = function() {
     closeModal();
     document.getElementById('modal_success').classList.remove('modal_active');
-}
