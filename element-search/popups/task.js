@@ -4,7 +4,7 @@ function closeModal() {
     modals[i].classList.remove('modal_active');
 }
 
-const closers = document.getElementsByClassName('modal__close')
+const closers = document.getElementsByClassName('modal__close');
 for (let i = 0; i < closers.length; i++) {
     closers[i].onclick = closeModal;
 }
@@ -19,3 +19,4 @@ document.getElementById('modal_main').classList.add('modal_active');
 document.querySelector('a.btn_success').onclick = function() {
     closeModal();
     document.getElementById('modal_success').classList.remove('modal_active');
+}
