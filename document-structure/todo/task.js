@@ -12,6 +12,12 @@ const getElemFromStorage = function() {
      }
 };
 
+const saveTasksStorage = function() {
+    document.querySelectorAll('.task').forEach((item, index) => {
+        localStorage.setItem(`task_${index}`, item.outerHTML);
+    });
+};
+
 getElemFromStorage();
 
 tasksPostElem.addEventListener('click', (e) => {
@@ -31,6 +37,7 @@ tasksPostElem.addEventListener('click', (e) => {
                     `;
 
                     e.target.value = null;
+                    saveTasksStorage();
                 }
             }
         });
@@ -49,9 +56,9 @@ tasksPostElem.addEventListener('click', (e) => {
             `;
 
             textInput.value = null;
+            saveTasksStorage();
         }
     }
-
     else if (e.target.className == 'task__remove') {
         e.target.parentElement.remove();
         for (let i = 0; i < localStorage.length; i++) {
@@ -63,15 +70,7 @@ tasksPostElem.addEventListener('click', (e) => {
             }
         }   
     }
-    
-    const saveTasksStorage = function() {
-        document.querySelectorAll('.task').forEach((item, index) => {
-            localStorage.setItem(`task_${[index]}`, item.outerHTML);
-        });
-    };
-    
-    saveTasksStorage();
-
 });
+
 
 
