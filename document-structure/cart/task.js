@@ -37,44 +37,6 @@ productsElems.addEventListener('click', (e) => {
             let valueProductNumber = Number(e.target.closest('.product').querySelector('.product__quantity-value').textContent);
             //складываем значения и присваиваем в textContent товара в корзине
             productInCartValue.textContent = valueInCartNumber + valueProductNumber;
-
-            // движение картинки
-            // let coordsPicInCart = findCart.querySelector('.cart__product-image').getBoundingClientRect();
-            // let coordsPicInList = e.target.closest('.product').querySelector('.product__image').getBoundingClientRect();
-
-            // let diffForX = Number(coordsPicInList.x) - Number(coordsPicInCart.x);
-            // let diffForY = Number(coordsPicInList.y) - Number(coordsPicInCart.y);
-
-            // console.log(coordsPicInList.x);
-            // console.log(coordsPicInCart.x);
-            // console.log(diffForX);
-
-
-            // console.log('/////')
-
-            // console.log(coordsPicInList.y);
-            // console.log(coordsPicInCart.y);
-            // console.log(diffForY);
-
-            // let clonePicInList = e.target.closest('.product').querySelector('.product__image').cloneNode();
-
-            // e.target.closest('.product').querySelector('.product__image').style.left = 200 +'px';
-            // e.target.closest('.product').querySelector('.product__image').style.top = 200 +'px';
-
-            // console.log(coordsPicInList)
-
-            // setInterval(function() {
-            //     let steps = 5;
-            //     let coordsForAnimateX = diffForX / steps;
-            //     let coordsForAnimateY = diffForY / steps;
-
-            //     for(let i = 0; i < steps; i++) {
-            //         clonePicInList.getBoundingClientRect().x += coordsForAnimateX;
-            //         clonePicInList.getBoundingClientRect().y += coordsForAnimateY;
-            //     }
-
-            // }, 2000);
-
         }
         else {
             //если findCart == undefined --> создаем товар в корзине
