@@ -1,29 +1,21 @@
 const elemsForTooltip = document.querySelectorAll('.has-tooltip');
+const elemTooltip = document.createElement('div');
+elemTooltip.classList.add('tooltip');
 
 elemsForTooltip.forEach((item) => {
     item.addEventListener('click', (e) => {
         e.preventDefault();
-
-        document.querySelectorAll('.tooltip').forEach((item) => {
-            item.remove();
-        });
+        item.appendChild(elemTooltip);
 
         let elemTopCoord = e.target.getBoundingClientRect().top;
         let elemLeftCoord = e.target.getBoundingClientRect().left;
         let textTooltip = item.getAttribute('title');
 
-        const createTooltip = function() {
-            let elemTooltip = document.createElement('div');
-            elemTooltip.classList.add('tooltip');
-            elemTooltip.style.left = elemLeftCoord + 'px';
-            elemTooltip.style.top = elemTopCoord + 25 + 'px';
-            elemTooltip.style.display = 'block';
-            elemTooltip.innerText = textTooltip;
-            return elemTooltip;
-        }
+        elemTooltip.contains(document.querySelector('.tooltip_active')) && document.querySelector('.tooltip_active').innerText == e.target.title ? 
+        elemTooltip.classList.remove('tooltip_active') : elemTooltip.classList.add('tooltip_active');
 
-        let elementTooltip = createTooltip();
-
-        e.target.insertAdjacentElement('afterend', elementTooltip);
+        elemTooltip.style.top = elemTopCoord + 25 + 'px';
+        elemTooltip.style.left = elemLeftCoord + 'px';
+        elemTooltip.innerText = textTooltip;
     });
 });
