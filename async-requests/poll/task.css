@@ -1,3 +1,37 @@
 body {
   font-family: Arial;
 }
+
+.modal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_active {
+  display: flex;
+}
+
+.modal_text {
+  position: relative;
+  border: 1px solid #000;
+  padding: 30px;
+  background-color: aliceblue;
+}
+
+.modal_close {
+  position: absolute;
+  right: 34%;
+  top: 9%;
+  text-decoration: none;
+  color: red;
+  font-size: 20px;
+}
+
+.poll__answers {
+  display: none;
+}
+
+.poll__answers_active {
+  display: block;
+}
