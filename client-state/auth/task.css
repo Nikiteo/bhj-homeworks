@@ -35,3 +35,11 @@ body {
 .welcome_active {
   display: block;
 }
+
+.irrelevant_values {
+ display: none;
+}
+
+.irrelevant_values_active {
+  display: block;
+}
